@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Filmmaker & Photographer Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #C53030;
+            --primary-dark: #9B2C2C;
+            --primary-light: #EF233C;
+            --accent: #FC8181;
+            --dark: #2B2D42;
+            --dark-gray: #8D99AE;
+            --medium-gray: #8D99AE;
+            --cream: #EDF2F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(237, 242, 244, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(197, 48, 48, 0.1);
+            padding: 0.5px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 6px solid var(--primary);
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .profile-img:hover {
+            box-shadow: 0 8px 25px rgba(197, 48, 48, 0.4);
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* ARCreatives Section */
+        .arcreatives-section {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(197, 48, 48, 0.15);
+            margin-top: 30px;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .arcreatives-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .arcreatives-logo {
+            max-width: 40%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Featured Films Section */
+        .featured-films {
+            position: relative;
+            z-index: 1;
+            margin-top: 0;
+        }
+
+        .featured-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .film-poster {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .film-poster:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .film-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 25px;
+        }
+
+        /* Buttons */
+        .btn-custom {
+            padding: 16px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom {
+            background: white;
+            color: var(--primary);
+            border: none;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(43, 45, 66, 0.3);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(197, 48, 48, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Software Proficiency */
+        .software-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(197, 48, 48, 0.1);
+            margin-top: 60px;
+        }
+
+        .software-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .software-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .software-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .software-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 5px 15px rgba(197, 48, 48, 0.2));
+        }
+
+        .software-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
+            transition: all 0.5s ease;
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(197, 48, 48, 0.15);
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            letter-spacing: 0.1em;
+        }
+
+        .skill-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .skill-description {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 6px 0 6px 22px;
+            position: relative;
+            color: var(--dark);
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Video Project Section */
+        .video-project {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(197, 48, 48, 0.12);
+            margin-bottom: 60px;
+        }
+
+        .project-header {
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+
+        .project-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* QuikExpress Section - UPDATED */
+        .quikexpress-project {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(197, 48, 48, 0.12);
+            margin-bottom: 60px;
+        }
+
+        .quikexpress-project .project-header {
+            padding: 25px 30px;
+        }
+
+        .quikexpress-project .project-title {
+            font-size: 1.8rem;
+        }
+
+        /* QuikExpress Image Gallery */
+        .quikexpress-gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: #f8f9fa;
+            flex-wrap: wrap;
+        }
+
+        .quikexpress-gallery img {
+            max-width: 22%;
+            height: auto;
+            max-height: 450px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(197, 48, 48, 0.15);
+            transition: all 0.3s ease;
+            flex: 0 1 auto;
+            min-width: 200px;
+            object-fit: contain;
+        }
+
+        .quikexpress-gallery img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(197, 48, 48, 0.25);
+        }
+
+        /* Awards Section */
+        .awards-section {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(197, 48, 48, 0.12);
+            margin-bottom: 60px;
+        }
+
+        .awards-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .awards-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .award-image-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .award-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(197, 48, 48, 0.2);
+        }
+
+        .award-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .award-badge {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 20px 35px;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(197, 48, 48, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .award-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(197, 48, 48, 0.4);
+        }
+
+        .award-badge i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Photography Gallery */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(197, 48, 48, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(197, 48, 48, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(197, 48, 48, 0.9));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-info {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            padding: 60px 0 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .award-badges {
+                flex-direction: column;
+            }
+
+            .award-badge {
+                width: 100%;
+                text-align: center;
+            }
+
+            .software-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-films {
+                margin-top: 30px;
+            }
+
+            .quikexpress-gallery {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .quikexpress-gallery img {
+                max-width: 80%;
+                min-width: 0;
+            }
+        }
+
+        /* Smooth Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        .stagger-7 { transition-delay: 0.7s; }
+        .stagger-8 { transition-delay: 0.8s; }
+        .stagger-9 { transition-delay: 0.9s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="image/maldo.jpg" alt="Profile" class="profile-img">
+                <span class="logo-text">John Cedrick M. Garcia</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-7">
+                    <span class="hero-tag fade-in">🎬 Welcome to My Portfolio</span>
+                    <h1 class="hero-title fade-in stagger-1">I Craft Visual Stories</h1>
+                    <p class="hero-subtitle fade-in stagger-2">Director • Cinematographer • Editor • Photographer</p>
+                    <p class="hero-description fade-in stagger-3">
+                        Transforming visions into compelling visual narratives through film and photography. 
+                        With expertise across directing, cinematography, editing, and photography, I bring stories to life that captivate and inspire.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap fade-in stagger-4">
+                        <a href="#skills" class="btn btn-custom btn-primary-custom">Explore My Work</a>
+                        <a href="#contact" class="btn btn-custom btn-outline-custom">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Featured Films -->
+                    <div class="featured-films fade-in stagger-6">
+                        <h3 class="featured-title">Featured Films</h3>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="film-poster" data-bs-toggle="modal" data-bs-target="#filmModal1">
+                                    <img src="arcreatives/AYOS AYOS.jpg" alt="Ayos Ayos Film Poster" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="film-poster" data-bs-toggle="modal" data-bs-target="#filmModal2">
+                                    <img src="image/botante.png" alt="Botante Film Poster" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARCreatives Section -->
+                    <div class="arcreatives-section fade-in stagger-5">
+                        <h3>Active Member Of</h3>
+                        <img src="arcreatives/ARCreatives.jpg" alt="ARCreatives Logo" class="arcreatives-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5 bg-white" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">My Expertise</span>
+                <h2 class="section-title">What I Do Best</h2>
+                <p class="section-description">
+                    Four core disciplines united through years of experience and passion for visual storytelling
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Directing -->
+                <div class="col-lg-6">
+                    <div class="skill-card fade-in stagger-1">
+                        <div class="skill-icon">🎬</div>
+                        <div class="skill-number">01 / DIRECTING</div>
+                        <h3 class="skill-title">Direction</h3>
+                        <p class="skill-description">
+                            Leading the creative vision from concept to completion, orchestrating every element to bring stories to life with authenticity and impact.
+                        </p>
+                        <ul class="skill-list">
+                            <li>Creative Vision & Concept Development</li>
+                            <li>Actor & Performance Direction</li>
+                            <li>Scene Blocking & Staging</li>
+                            <li>Team Leadership & Collaboration</li>
+                            <li>Story Arc Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cinematography -->
+                <div class="col-lg-6">
+                    <div class="skill-card fade-in stagger-2">
+                        <div class="skill-icon">📹</div>
+                        <div class="skill-number">02 / CINEMATOGRAPHY</div>
+                        <h3 class="skill-title">Cinematography</h3>
+                        <p class="skill-description">
+                            Crafting stunning visuals through masterful use of light, composition, and camera movement to enhance storytelling and evoke emotions.
+                        </p>
+                        <ul class="skill-list">
+                            <li>Professional Lighting Design</li>
+                            <li>Advanced Camera Operation</li>
+                            <li>Visual Composition & Framing</li>
+                            <li>Color Theory & Mood Creation</li>
+                            <li>Technical Innovation & Solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Editing -->
+                <div class="col-lg-6">
+                    <div class="skill-card fade-in stagger-3">
+                        <div class="skill-icon">✂️</div>
+                        <div class="skill-number">03 / EDITING</div>
+                        <h3 class="skill-title">Post-Production</h3>
+                        <p class="skill-description">
+                            Sculpting raw footage into seamless narratives through precise editing, perfect timing, and understanding of rhythm and emotional pacing.
+                        </p>
+                        <ul class="skill-list">
+                            <li>Non-Linear Editing Mastery</li>
+                            <li>Narrative Structure & Pacing</li>
+                            <li>Color Grading & Correction</li>
+                            <li>Sound Design Integration</li>
+                            <li>Final Polish & Delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Photography -->
+                <div class="col-lg-6">
+                    <div class="skill-card fade-in stagger-4">
+                        <div class="skill-icon">📷</div>
+                        <div class="skill-number">04 / PHOTOGRAPHY</div>
+                        <h3 class="skill-title">Photography</h3>
+                        <p class="skill-description">
+                            Capturing decisive moments and crafting compelling still images that tell powerful stories through composition, lighting, and visual aesthetics.
+                        </p>
+                        <ul class="skill-list">
+                            <li>Portrait & Event Photography</li>
+                            <li>Composition & Framing Mastery</li>
+                            <li>Natural & Studio Lighting</li>
+                            <li>Photo Editing & Retouching</li>
+                            <li>Visual Storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Proficiency Section -->
+            <div class="software-section fade-in">
+                <h3>Software Proficiency</h3>
+                <div class="software-grid">
+                    <div class="software-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Adobe Premiere Pro" class="software-logo">
+                        <p class="software-name">Adobe Premiere Pro</p>
+                    </div>
+                    <div class="software-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/DaVinci_Resolve_17_logo.svg" alt="DaVinci Resolve 19" class="software-logo">
+                        <p class="software-name">DaVinci Resolve 19</p>
+                    </div>
+                    <div class="software-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender 3D" class="software-logo">
+                        <p class="software-name">Blender 3D</p>
+                    </div>
+                    <div class="software-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop" class="software-logo">
+                        <p class="software-name">Adobe Photoshop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-5" id="projects" style="background: var(--cream);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Featured Work</span>
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-description">
+                    Explore my featured work showcasing my filmmaking expertise
+                </p>
+            </div>
+
+            <!-- Video Project 1 -->
+            <div class="video-project scale-in">
+                <div class="project-header">
+                    <h3 class="project-title">Ayos? Ayos. - Short Film</h3>
+                    <p class="mb-0">📹 Cinematic Production | 🎬 Featured Project</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/_g2bV6B3whM" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="p-4">
+                    <p class="mb-3">
+                        "𝑺𝒂 𝒃𝒖𝒉𝒂𝒚 𝒏𝒂 𝒑𝒂𝒈𝒐𝒅 𝒂𝒏𝒈 𝒑𝒖𝒉𝒖𝒏𝒂𝒏, 𝒌𝒂𝒑𝒂𝒍𝒊𝒕 𝒏𝒂𝒎𝒂𝒏 𝒏𝒊𝒕𝒐 𝒂𝒚 𝒑𝒂𝒈-𝒂𝒔𝒂 𝒂𝒕 𝒌𝒊𝒏𝒂𝒃𝒖𝒌𝒂𝒔𝒂𝒏." 
+Tunghayan ang kwento nina Arc at Leo na magbibigay katatagan sa pamilya sa kabila ng hirap at sakripisyo, may liwanag at pagbabago. Sa bawat laban sa buhay, palaging may sagot na "Ayos."
+Ang maikling pelikulang ito ay kabilang sa Hello Santa Rosa Stories: Kwento ng Kultura at Pagbabago na inihanda ng City Tourism Office para sa pagdiriwang ng #NationalTourismMonth.
+Mabuhay ang pelikulang Pilipino! 
+#exposeCreativity #HelloSantaRosa #ARCreatives #ShortFilm
+                    </p>
+                    <a href="https://youtu.be/_g2bV6B3whM" target="_blank" class="btn btn-custom" style="background: var(--primary); color: white;">
+                        <i class="bi bi-youtube me-2"></i>View on YouTube
+                    </a>
+                </div>
+            </div>
+
+            <!-- Video Project 2 -->
+            <div class="video-project scale-in stagger-1">
+                <div class="project-header">
+                    <h3 class="project-title">BOTANTE - Short Film</h3>
+                    <p class="mb-0">📹 Political Drama | 🎬 Featured Project</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/tu097DoYbsw" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="p-4">
+                    <p class="mb-3">
+                        Lino, a man struggling to choose the right candidate for his one and only vote, finds himself torn between promises that all sound the same. As election day looms, the weight of his decision grows heavier, knowing his single choice could shape the future of his community. "isang boto, isang paninidigan"
+#PiliKoLangPelikula
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=tu097DoYbsw" target="_blank" class="btn btn-custom" style="background: var(--primary); color: white;">
+                        <i class="bi bi-youtube me-2"></i>View on YouTube
+                    </a>
+                </div>
+            </div>
+
+            <!-- Photography Gallery -->
+            <div class="mt-5">
+                <h3 class="text-center mb-4" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5rem;">Photography Portfolio</h3>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="gallery-item fade-in stagger-1" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                            <img src="image/group.jpg" alt="Group Portrait">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Group Portrait
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal2">
+                            <img src="image/sports.jpg" alt="Sports Photography">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Sports Event
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal3">
+                            <img src="image/live.jpg" alt="Live Performance">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Live Performance
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal4">
+                            <img src="image/film awards.jpg" alt="Film Awards">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Film Awards
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal5">
+                            <img src="image/deadpool.jpg" alt="Product Photography">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Product Shot
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal6">
+                            <img src="image/presentation.jpg" alt="Presentation">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Event Coverage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal7">
+                            <img src="image/landscape.jpg" alt="Landscape">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Sunset Landscape
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal8">
+                            <img src="image/batman.jpg" alt="Figure Photography">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Creative Product
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal9">
+                            <img src="image/concert.jpg" alt="Concert Photography">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <i class="bi bi-camera-fill me-2"></i>Live Concert
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects Section - UPDATED WITH 3 IMAGES -->
+            <div class="mt-5 pt-4">
+                <h3 class="text-center mb-4 fade-in" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2rem; color: var(--dark);">
+                    Other Projects as a Multimedia Student
+                </h3>
+                
+                <div class="quikexpress-project scale-in stagger-2">
+                    <div class="project-header">
+                        <h3 class="project-title">QuikExpress - Food Delivery App</h3>
+                        <p class="mb-0">📱 UI/UX Design | 🎨 Figma Prototype</p>
+                    </div>
+                    
+                    <!-- Image Gallery - 3 Images Side by Side -->
+                    <div class="quikexpress-gallery">
+                        <img src="image/food delivery.png" alt="QuikExpress Home Screen">
+                        <img src="image/food delivery 2.png" alt="QuikExpress Pizza Screen">
+                        <img src="image/food delivery 3.png" alt="QuikExpress Cake Screen">
+                    </div>
+
+                    <div class="p-4">
+                        <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+                            A modern food delivery application design created as part of multimedia coursework. Features an intuitive user interface with smooth navigation, category browsing (Burger, Pizza, Cake), and seamless ordering experience. The app showcases popular items with pricing, along with a clean bottom navigation bar for Home, Activity, Messages, and Profile sections.
+                        </p>
+                        <div class="text-center">
+                            <a href="https://www.figma.com/proto/mWECh0yQhBEsSH5zfR5LUp/Food-Delivery-App?t=wRrU07Ei0hgAPsiK-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2" target="_blank" class="btn btn-custom" style="background: var(--primary); color: white; padding: 14px 35px; font-size: 1.05rem;">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-5 bg-white" id="awards">
+        <div class="container">
+            <!-- First Award -->
+            <div class="awards-section">
+                <div class="awards-header">
+                    <span class="section-label">Recognition</span>
+                    <h3>Film Festival Awards</h3>
+                    <p style="color: var(--medium-gray); font-size: 1.1rem;">Honored with multiple accolades for excellence in filmmaking</p>
+                </div>
+
+                <div class="award-image-container">
+                    <img src="image/bestbestbest.JPG" alt="Film Festival Awards" class="img-fluid">
+                </div>
+
+                <div class="award-badges">
+                    <div class="award-badge" style="font-size: 1.2rem; padding: 25px 50px;">
+                        <i class="bi bi-trophy-fill"></i>
+                        Best Picture • Best Director • Best in Cinematography
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Award -->
+            <div class="awards-section mt-5">
+                <div class="awards-header">
+                    <span class="section-label">Recognition</span>
+                    <h3>Short Film Making Contest</h3>
+                    <p style="color: var(--medium-gray); font-size: 1.1rem;">Team achievement in regional film competition</p>
+                </div>
+
+                <div class="award-image-container">
+                    <img src="image/film photo.JPG" alt="Team Award Photo" class="img-fluid">
+                </div>
+
+                <div class="award-badges">
+                    <div class="award-badge" style="font-size: 1.2rem; padding: 25px 50px;">
+                        <i class="bi bi-trophy-fill"></i>
+                        5th Placer in "2nd Hello Santa Rosa Stories: Kwento ng Kultura at Pagbabago" Short Film Making Contest
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Poster Modals -->
+    <div class="modal fade" id="filmModal1" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ayos? Ayos. - Film Poster</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="arcreatives/AYOS AYOS.jpg" class="w-100" alt="Ayos Ayos Film Poster">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="filmModal2" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BOTANTE - Film Poster</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/botante.png" class="w-100" alt="Botante Film Poster">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modals (Photography Gallery) -->
+    <div class="modal fade" id="imageModal1" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Group Portrait</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/group.jpg" class="w-100" alt="Group Portrait">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal2" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sports Event Photography</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/sports.jpg" class="w-100" alt="Sports Event">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Live Performance</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/live.jpg" class="w-100" alt="Live Performance">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal4" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Film Festival Awards</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/film awards.jpg" class="w-100" alt="Film Awards">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal5" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Photography</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/deadpool.jpg" class="w-100" alt="Product Shot">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal6" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Event Presentation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/presentation.jpg" class="w-100" alt="Presentation">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal7" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sunset Landscape</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/landscape.jpg" class="w-100" alt="Landscape">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal8" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Creative Product Photography</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/batman.jpg" class="w-100" alt="Figure">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal9" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Live Concert Photography</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="image/concert.jpg" class="w-100" alt="Concert">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="py-5 text-center text-white" id="contact" style="background: var(--dark);">
+        <div class="container">
+            <h2 class="display-4 fw-bold mb-4">Let's Create Something Amazing</h2>
+            <p class="lead mb-4">Ready to bring your vision to life? I'm available for collaborations, projects, and creative partnerships.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="mailto:contact@example.com" class="btn btn-custom btn-primary-custom">
+                    <i class="bi bi-envelope-fill me-2"></i>Email Me
+                </a>
+                <a href="tel:+1234567890" class="btn btn-custom btn-outline-custom">
+                    <i class="bi bi-telephone-fill me-2"></i>Call Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3>About Me</h3>
+                    <p>A passionate filmmaker and photographer dedicated to crafting compelling visual stories that resonate with audiences worldwide.</p>
+                    <div class="social-links mt-3">
+                        <a href="https://www.instagram.com/tendercedie/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.facebook.com/johncedrick.garcia.1238" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="mailto:contact@example.com"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#skills">Skills</a></li>
+                        <li class="mb-2"><a href="#projects">Projects</a></li>
+                        <li class="mb-2"><a href="#awards">Awards</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Get In Touch</h3>
+                    <p><i class="bi bi-envelope me-2"></i>cedfromfb@gmail.com</p>
+                    <p><i class="bi bi-telephone me-2"></i>+63 906 044 3139</p>
+                    <p><i class="bi bi-geo-alt me-2"></i>Santa Rosa Laguna</p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <p class="text-center mb-0">&copy; 2026 John Cedrick M. Garcia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 30px rgba(197, 48, 48, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(197, 48, 48, 0.1)';
+            }
+        });
+
+        // Scroll animations - Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Trigger hero animations immediately
+            setTimeout(() => {
+                document.querySelectorAll('.hero .fade-in').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 100);
+
+            // Add stagger animations to gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                if (!item.classList.contains('stagger-1') && !item.classList.contains('fade-in')) {
+                    item.classList.add('fade-in');
+                }
+                const staggerClass = `stagger-${(index % 9) + 1}`;
+                if (!item.classList.contains(staggerClass)) {
+                    item.classList.add(staggerClass);
+                }
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
